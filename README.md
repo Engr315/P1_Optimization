@@ -1,3 +1,3 @@
-# P1_Circles
+# P1 - Python Optimization
 
-Please see [Circles.ipynb](Circles.ipynb) to get started.  
+Please see [Flowers.ipynb](Flowers.ipynb) to get started.  
