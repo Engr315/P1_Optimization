@@ -45,7 +45,7 @@ class FastFlowerDrawer:
 
     def compute_point(self, a: int, theta: float, x_c: float, y_c: float):
         """Polar coordinats slap! - this is my very favorite rose function"""
-        r = (a * cos(5 * theta)) + (a * 1.3)
+        r = (a * cos(5 * (theta - (pi/2)))) + (a * 1.3)
 
         x = self.polar_to_cartesian(r, theta, x_c, y_c)[0]
         y = self.polar_to_cartesian(r, theta, x_c, y_c)[1]
@@ -53,8 +53,8 @@ class FastFlowerDrawer:
     
     def polar_to_cartesian(self, r: float, theta: float, x_c: float, y_c: float):
         """I passed precalk"""
-        x = r * sin(theta) + x_c
-        y = r * cos(theta) + y_c
+        x = r * cos(theta) + x_c
+        y = r * sin(theta) + y_c
         return (x, y)
 
     # NOTE: Leave this function definition as it is - but change the code inside
