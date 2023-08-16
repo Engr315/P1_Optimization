@@ -53,8 +53,8 @@ class FastFlowerDrawer:
     
     def polar_to_cartesian(self, r: float, theta: float, x_c: float, y_c: float):
         """I passed precalk"""
-        x = r * cos(theta) + x_c
-        y = r * sin(theta) + y_c
+        x = round(r * cos(theta) + x_c, 9)
+        y = round(r * sin(theta) + y_c, 9)
         return (x, y)
 
     # NOTE: Leave this function definition as it is - but change the code inside
