@@ -88,10 +88,8 @@ class BadFlowerDrawer:
     def draw_many_flower(self, inputs: list):
         """Why have one flower when many do trick?"""
         flower_list = []
-        i = 0
         for x, y, r in inputs:
             flower = self.draw_one_flower(a=r, x_c=x, y_c=y)
             flower_list.insert(len(flower_list), flower)
-            i += 1
 
         return flower_list
