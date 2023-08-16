@@ -61,8 +61,8 @@ class NotReallyAFlowerDrawer:
         # so only 1 half of 1 petal has to be computed, then the math does itself!
         while theta <= pi/5:
             # top petal
-            points = self.place_in_list(points,  a, theta, x_c, y_c)
-            #points = self.place_in_list(points,  a, -theta, x_c, y_c)
+            #points = self.place_in_list(points,  a, theta, x_c, y_c)
+            points = self.place_in_list(points,  a, -theta, x_c, y_c)
 
             # first petal clockwise 
             points = self.place_in_list(points, a, (2 * pi/5) -theta, x_c, y_c)
