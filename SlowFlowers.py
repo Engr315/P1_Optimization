@@ -46,42 +46,43 @@ class BadFlowerDrawer:
     
     def polar_to_cartesian(self, r: float, theta: float, x_c: float, y_c: float):
         """I passed precalk"""
-        x = round(r * cos(theta) + x_c, 9)
-        y = round(r * sin(theta) + y_c, 9)
+        x = r * cos(theta) + x_c
+        y = r * sin(theta) + y_c
         return (x, y)
 
     def draw_one_flower(self, a: int, x_c: float = 0, y_c: float = 0):
         """I think this will draw one flower ... idk"""
 
         # Theta is 0 means the top of the flower (weird I know)
-        theta = 0
+        theta = pi/2
         points = []
 
         # Because this code is so good, I use the power of reflections and translations
         # so only 1 half of 1 petal has to be computed, then the math does itself!
-        while theta <= pi/5:
+        while theta >= (pi/2 -pi/5):
             # top petal
+
             points = self.place_in_list(points,  a, theta, x_c, y_c)
-            points = self.place_in_list(points,  a, -theta, x_c, y_c)
+            points = self.place_in_list(points,  a, pi-theta, x_c, y_c)
 
             # first petal clockwise 
-            points = self.place_in_list(points, a, (2 * pi/5) -theta, x_c, y_c)
-            points = self.place_in_list(points, a, (2 * pi/5) +theta, x_c, y_c)
-
-            # first petal widdershins
-            points = self.place_in_list(points, a, -(2 * pi/5) - theta, x_c, y_c)
-            points = self.place_in_list(points, a, -(2 * pi/5) + theta, x_c, y_c)
+            points = self.place_in_list(points, a, theta - (2 * pi/5), x_c, y_c)
+            points = self.place_in_list(points, a, pi-theta-(2 * pi/5), x_c, y_c)
 
             # second petal clockwise
-            points = self.place_in_list(points, a, 2 * (2 * pi/5) - theta, x_c, y_c)
-            points = self.place_in_list(points, a, 2 * (2 * pi/5) + theta, x_c, y_c)
+            points = self.place_in_list(points, a, pi-theta-2*(2 * pi/5), x_c, y_c)
+            points = self.place_in_list(points, a, theta - 2*(2 * pi/5), x_c, y_c)
+
+            # first petal widdershins
+            points = self.place_in_list(points, a, theta + (2 * pi/5), x_c, y_c)
+            points = self.place_in_list(points, a, pi-theta+(2 * pi/5), x_c, y_c)
 
             # second petal widdershins
-            points = self.place_in_list(points,a, -2 * (2 * pi/5) - theta, x_c, y_c)
-            points = self.place_in_list(points,a, -2 * (2 * pi/5) + theta, x_c, y_c)
+            points = self.place_in_list(points, a, theta + 2*(2 * pi/5), x_c, y_c)
+            points = self.place_in_list(points, a, pi-theta+2*(2 * pi/5), x_c, y_c)
 
             # increment theta
-            theta += (2 * pi) / 2500
+            theta -= (2 * pi) / 2500
 
         return points
 
