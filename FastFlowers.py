@@ -13,20 +13,24 @@ class FastFlowerDrawer:
     def __init__(self):
         """Nothing to see here"""
         pass
-       
+     # Place a point in a list while maintaining order based on angle  
     def place_in_list(self, point_list: list, a: int, theta: float, x_c: float, y_c: float):
         """Highly optimized code to follow"""
 
         point_placed_in_list = False
 
+        # Calculate the coordinates of the point using polar coordinates
         p = self.compute_point(a, theta, x_c, y_c)
 
         if len(point_list) == 0:
             point_list.append(p)
             point_placed_in_list = True
-
+        # Loop through existing points to find the appropriate position for the new point
+        #We can make this part faster
+        p = self.compute_point(a, theta, x_c, y_c) 
+        ##Moved outside before the loop so it does it before instead of doing it while
         for index, point in enumerate(point_list):
-            p = self.compute_point(a, theta, x_c, y_c)
+            # p = self.compute_point(a, theta, x_c, y_c)
             oldTheta = atan2(point[0]-x_c, point[1]-y_c)
             newTheta = atan2(p[0]-x_c, p[1]-y_c)
 
