@@ -25,9 +25,12 @@ class FastFlowerDrawer:
         if len(point_list) == 0:
             point_list.append(p)
             point_placed_in_list = True
-
+        # Loop through existing points to find the appropriate position for the new point
+        #We can make this part faster
+        p = self.compute_point(a, theta, x_c, y_c) 
+        ##Moved outside before the loop so it does it before instead of doing it while
         for index, point in enumerate(point_list):
-            p = self.compute_point(a, theta, x_c, y_c)
+            # p = self.compute_point(a, theta, x_c, y_c)
             oldTheta = atan2(point[0]-x_c, point[1]-y_c)
             newTheta = atan2(p[0]-x_c, p[1]-y_c)
 
